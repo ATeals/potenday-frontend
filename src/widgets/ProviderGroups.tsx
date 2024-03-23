@@ -1,5 +1,9 @@
-import { NaverMapProvider } from "@/feature/Provider";
+import { NaverMapProvider, QueryProvider } from "@/feature/Provider";
 
 export const ProviderGroups = ({ children }: { children: React.ReactNode }) => {
-  return <NaverMapProvider>{children}</NaverMapProvider>;
+  return (
+    <QueryProvider>
+      <NaverMapProvider>{children}</NaverMapProvider>
+    </QueryProvider>
+  );
 };
