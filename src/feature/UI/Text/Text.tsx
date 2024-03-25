@@ -7,8 +7,8 @@ type TextProps = {
 } & AsChildProps;
 
 const TextSizeMap = {
-  sm: "text-sm",
-  md: "text-md",
+  sm: "text-[0.5rem]",
+  md: "text-sm",
   lg: "text-lg",
   xl: "text-xl",
   "2xl": "text-2xl",

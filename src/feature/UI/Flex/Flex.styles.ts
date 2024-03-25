@@ -5,6 +5,7 @@ export const getFlexStyles = (style: FlexStyles & Omit<CSSProperties, "direction
   flexDirection: style.direction,
   justifyContent: style.justify || "center",
   alignItems: style.align || "center",
+  flexWarp: style.flexWrap || "noWrap",
   ...{ ...style, direction: style.cssDirection },
 });
 

@@ -12,8 +12,8 @@ export const DividerLine = ({
 }: PolymorphicComponentProps<"div", DividerLineProps>) => {
   const tailwind = generateClassName(
     "border-gray-300",
-    direction === "horizontal" && `border-b-2 w-full`,
-    direction === "vertical" && `border-l-2 h-full`,
+    direction === "horizontal" && `border-b-[1px] w-full`,
+    direction === "vertical" && `border-l-[1px] h-full`,
     className
   );
 

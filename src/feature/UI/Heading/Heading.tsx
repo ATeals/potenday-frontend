@@ -7,11 +7,11 @@ type HeadingProps = {
 } & AsChildProps;
 
 const HeadingSizeMap = {
-  sm: "text-xl",
-  md: "text-2xl",
-  lg: "text-3xl",
-  xl: "text-4xl",
-  "2xl": "text-5xl",
+  sm: "text-sm",
+  md: "text-md",
+  lg: "text-xl",
+  xl: "text-2xl",
+  "2xl": "text-3xl",
 };
 
 export const Heading = <T extends React.ElementType = "h1">({

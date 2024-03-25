@@ -10,9 +10,9 @@ type InputProps = {
 };
 
 const InputSizeMap = {
-  sm: " w-[18rem] h-[2rem] text-sm rounded-sm",
-  md: " w-[18rem] h-[2.5rem] text-md rounded-md",
-  lg: " w-[18rem] h-[3rem] text-xl rounded-lg",
+  sm: " w-[18rem] h-[1rem] text-sm rounded-sm",
+  md: " w-[18rem] h-[2rem] text-sm rounded-md",
+  lg: " w-[18rem] h-[3rem] text-sm rounded-lg",
 };
 
 const InputVariantMap = {
