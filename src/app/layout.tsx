@@ -28,8 +28,8 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative w-screen h-screen sm:w-[393px] sm:mx-auto">
-        <main className="pb-[77px] h-screen overflow-scroll">
+      <body className="relative w-screen sm:w-[393px] sm:mx-auto">
+        <main className="pb-[77px] overflow-scroll">
           <ProviderGroups>{children}</ProviderGroups>
         </main>
         <Navigation />
