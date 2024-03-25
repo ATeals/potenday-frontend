@@ -8,11 +8,11 @@ type BoxProps = {
 } & AsChildProps;
 
 const BoxSizeMap = {
-  sm: " w-[2rem] h-[2rem] rounded-sm",
-  md: " w-[4rem] h-[4rem] rounded-md",
-  lg: " w-[4rem] h-[4rem] rounded-lg",
-  xl: " w-[5rem] h-[5rem] rounded-lg",
-  "2xl": " w-[6rem] h-[6rem] rounded-lg",
+  sm: " w-[2rem] h-[2rem] ",
+  md: " w-[4rem] h-[4rem] ",
+  lg: " w-[4rem] h-[4rem]",
+  xl: " w-[5rem] h-[5rem] ",
+  "2xl": " w-[6rem] h-[6rem] ",
   default: "w-full h-full",
 };
 
