@@ -27,6 +27,7 @@ export default function RootLayout({
           integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
           crossOrigin="anonymous"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       </head>
 
       <body className="relative w-screen sm:w-[393px] sm:mx-auto h-dvh">
