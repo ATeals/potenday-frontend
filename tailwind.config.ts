@@ -25,6 +25,35 @@ const config: Config = {
         black: "#34362A",
       },
     },
+
+    extend: {
+      keyframes: {
+        slideUpIn: {
+          "0%": {
+            transform: "translateY(100%)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+        slideDownOut: {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateY(100%)",
+            opacity: "0",
+          },
+        },
+      },
+      animation: {
+        "slide-up-in": "slideUpIn 0.3s ease-out",
+        "slide-down-out": "slideDownOut 0.3s ease-out",
+      },
+    },
   },
   plugins: [],
 };

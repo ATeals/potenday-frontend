@@ -1,4 +1,4 @@
-type FormetDateType = "YYYY/MM/DD" | "YYYY년 MM월 DD일" | "YYYY.MM.DD" | "YYMMDD";
+type FormetDateType = keyof typeof FormetDateMap;
 
 const FormetDateMap = {
   "YYYY/MM/DD": (date: Date) => date.toISOString().slice(0, 10).split("-").join("/"),
@@ -6,9 +6,11 @@ const FormetDateMap = {
   YYMMDD: (date: Date) => date.toISOString().slice(0, 10).split("-").join("").slice(2),
   "YYYY년 MM월 DD일": (date: Date) => {
     const [y, m, d] = date.toISOString().slice(0, 10).split("-");
-
     return `${y}년${m}월${d}일`;
   },
+  YYYY: (date: Date) => date.toISOString().slice(0, 10).split("-")[0],
+  MM: (date: Date) => date.toISOString().slice(0, 10).split("-")[1],
+  DD: (date: Date) => date.toISOString().slice(0, 10).split("-")[2],
 };
 
 /**

@@ -2,18 +2,19 @@
 
 import { Badge } from "@UI/Badge";
 import { Box } from "@UI/Box";
-import { Carousel } from "@UI/Caroucel";
 import { DividerLine } from "@UI/DividerLine";
 import { Flex } from "@UI/Flex";
 import { Heading } from "@UI/Heading";
 import { Text } from "@UI/Text";
 import { Icon } from "@UI/icon";
+import { Container } from "react-naver-maps";
+import { Map } from "./Map";
 
 const HomePage = () => {
   return (
     <>
       <Flex as="section" className="p-5 px-3" style={{ justify: "space-between", align: "center" }}>
-        <Heading size="lg">어플 이름 넣기</Heading>
+        <Heading size="lg">{"LET's EAT"}</Heading>
         <Icon icon="bell" />
       </Flex>
 
@@ -59,11 +60,11 @@ const HomePage = () => {
       </section>
 
       <section className="my-2 px-3">
-        <Carousel className="h-[200px] rounded-lg" autoSlideDelay={3000}>
-          <img src="https://i.pinimg.com/564x/e3/1d/03/e31d03f8ff46a34035029b2bfcc90b76.jpg" />
-          <img src="https://i.pinimg.com/564x/dd/18/0b/dd180b5c802abcaaa014ba441610760d.jpg" />
-          <img src="https://i.pinimg.com/564x/55/3a/43/553a4318495896249c589bb3008c3316.jpg" />
-        </Carousel>
+        <div className="h-[200px]">
+          <Container className="w-full h-full">
+            <Map />
+          </Container>
+        </div>
 
         <Flex className=" my-2" style={{ gap: 10, justify: "start" }}>
           <Flex style={{ direction: "column", justify: "space-around" }} as={Box} size="xl">

@@ -6,15 +6,18 @@ html {
   font-size: 16px;
   height: -webkit-fill-available;
 }
-
+/* 
 body {
-  -ms-overflow-style: none;
+  height: 100vh;
   height: -webkit-fill-available;
+  height: fill-available;
 }
 
 main {
+  height: 100vh;
   height: -webkit-fill-available;
-}
+  height: fill-available;
+} */
 
 @supports (-webkit-touch-callout: none) {
   height: -webkit-fill-available;
