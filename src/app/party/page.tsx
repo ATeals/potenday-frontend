@@ -14,6 +14,7 @@ import { Heading } from "@UI/Heading";
 import { Badge } from "@UI/Badge";
 import { useBottomSheetContext } from "@UI/BottomSheetWapper/BottomSheetWapper";
 import { Input } from "@UI/Input";
+import { Select } from "@UI/Select";
 
 type ValuePiece = Date | null;
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -141,6 +142,21 @@ const CalinderInput = ({
   );
 };
 
+const HOUR_SELECT_OPTIONS = Array.from({ length: 12 }, (_, index) => ({
+  label: `${index + 1}시`,
+  value: index + 1,
+}));
+
+const MINUTE_SELECT_OPTIONS = Array.from({ length: 60 / 5 }, (_, index) => ({
+  label: `${index * 5}분`,
+  value: index * 5,
+}));
+
+const AM_PM_SELECT_OPTIONS = [
+  { label: "오전", value: "AM" },
+  { label: "오후", value: "PM" },
+];
+
 const TimeInput = ({
   defaultTime,
   onSubmit,
@@ -162,7 +178,12 @@ const TimeInput = ({
       style={{ direction: "column", justify: "space-between", gap: 10 }}
       className="p-2 py-10 h-full"
     >
-      <input ref={ref} type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+      <Flex className="w-full">
+        <Select options={AM_PM_SELECT_OPTIONS} defaultOptions={AM_PM_SELECT_OPTIONS[1]} />
+        <Select options={HOUR_SELECT_OPTIONS} plaseholder="시간" />
+        <Select options={MINUTE_SELECT_OPTIONS} plaseholder="분" />
+      </Flex>
+
       <Heading className="text-center">{time}</Heading>
       <Badge
         onClick={() => {
