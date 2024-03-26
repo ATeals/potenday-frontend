@@ -1,5 +1,6 @@
 import { generateClassName } from "@/feature/common/utils";
-import { PolymorphicComponentProps } from "@UI/types/PolymorphicComponentProps";
+import { PolymorphicComponentProps, PolymorphicRef } from "@UI/types/PolymorphicComponentProps";
+import { forwardRef } from "react";
 
 type InputProps = {
   size?: keyof typeof InputSizeMap;
@@ -23,18 +24,23 @@ const InputVariantMap = {
   underline: "border-b-2 rounded-none",
 };
 
-export const Input = ({
-  type = "text",
-  size = "md",
-  variant = "default",
-  className,
-  ...props
-}: PolymorphicComponentProps<"input", InputProps>) => {
+export const InputComponent = (
+  {
+    type = "text",
+    size = "md",
+    variant = "default",
+    className,
+    ...props
+  }: PolymorphicComponentProps<"input", InputProps>,
+  ref: PolymorphicRef<"input">
+) => {
   const tailwind = generateClassName(InputVariantMap[variant], InputSizeMap[size], className);
 
   return (
     <>
-      <input className={tailwind} type={type} {...props} />
+      <input className={tailwind} type={type} {...props} ref={ref} />
     </>
   );
 };
+
+export const Input = forwardRef(InputComponent);
