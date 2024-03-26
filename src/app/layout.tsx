@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { ProviderGroups } from "@/widgets/ProviderGroups";
 
-import "@/styles/globals.css";
 import { Flex } from "@UI/Flex";
 import { Icon } from "@UI/icon";
 import { Text } from "@UI/Text";
 import { DividerLine } from "@UI/DividerLine";
 
+import "@/styles/globals.css";
+
 export const metadata: Metadata = {
-  title: "naver map demo",
-  description: "demo for naver map",
+  title: "LET's EAT",
+  description: "",
 };
 
 export default function RootLayout({
@@ -28,8 +29,8 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="relative w-screen sm:w-[393px] sm:mx-auto">
-        <main className="pb-[77px] overflow-scroll">
+      <body className="relative w-screen sm:w-[393px] sm:mx-auto h-dvh">
+        <main className="pb-[77px] overflow-scroll w-full h-dvh">
           <ProviderGroups>{children}</ProviderGroups>
         </main>
         <Navigation />
@@ -40,7 +41,7 @@ export default function RootLayout({
 
 const Navigation = () => {
   return (
-    <nav className="absolute bottom-0 w-full z-50 bg-white">
+    <nav className="absolute bottom-0 w-full z-30 bg-white">
       <DividerLine />
       <Flex style={{ justify: "space-between" }} className="p-5 pt-1 pb-5">
         <Flex style={{ direction: "column" }}>
