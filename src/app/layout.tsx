@@ -7,6 +7,7 @@ import { Text } from "@UI/Text";
 import { DividerLine } from "@UI/DividerLine";
 
 import "@/styles/globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "LET's EAT",
@@ -27,7 +28,10 @@ export default function RootLayout({
           integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd"
           crossOrigin="anonymous"
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
       </head>
 
       <body className="relative w-screen sm:w-[393px] sm:mx-auto h-dvh">
@@ -40,15 +44,21 @@ export default function RootLayout({
   );
 }
 
+const PATH = {
+  HOME: "/",
+};
+
 const Navigation = () => {
   return (
     <nav className="absolute bottom-0 w-full z-30 bg-white">
       <DividerLine />
       <Flex style={{ justify: "space-between" }} className="p-5 pt-1 pb-5">
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="house" size="lg" />
-          <Text size="sm">홈</Text>
-        </Flex>
+        <Link href={PATH.HOME}>
+          <Flex style={{ direction: "column" }}>
+            <Icon icon="house" size="lg" />
+            <Text size="sm">홈</Text>
+          </Flex>
+        </Link>
 
         <Flex style={{ direction: "column" }}>
           <Icon icon="house" size="lg" />

@@ -61,7 +61,10 @@ const HomePage = () => {
 
       <section className="my-2 px-3">
         <div className="h-[200px]">
-          <Container className="w-full h-full">
+          <Container
+            fallback={<div className="w-full h-full animate-pulse bg-gray-300"></div>}
+            className="w-full h-full"
+          >
             <Map />
           </Container>
         </div>
