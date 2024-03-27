@@ -130,7 +130,6 @@ const CalinderInput = ({
         value={date}
         onChange={(value) => {
           setDate(value);
-          onSubmit?.(value as Date);
         }}
         formatDay={(locale, date) => formatDate(date, "DD")}
         calendarType="gregory"
