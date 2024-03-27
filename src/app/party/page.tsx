@@ -34,12 +34,7 @@ const Page = () => {
       <button
         onClick={() =>
           open(({ isOpen }) => (
-            <BottomSheetWapper
-              isOpen={isOpen}
-              close={() => {
-                close();
-              }}
-            >
+            <BottomSheetWapper isOpen={isOpen} close={close}>
               <Calendar
                 value={date}
                 onChange={(...props) => console.log(props)}
@@ -134,7 +129,6 @@ const CalinderInput = ({
       <Calendar
         value={date}
         onChange={(value) => {
-          console.log(value);
           setDate(value);
           onSubmit?.(value as Date);
         }}
@@ -144,8 +138,7 @@ const CalinderInput = ({
       <Heading className="text-center">{dateLabel}</Heading>
       <Badge
         onClick={() => {
-          onSubmit(date as Date);
-          close();
+          close().then(() => onSubmit(date as Date));
         }}
         as="button"
         className="w-full p-2 bg-gray-300"
@@ -218,8 +211,7 @@ const TimeInput = ({
       <Badge
         onClick={() => {
           setTime(time);
-          onSubmit(timeString);
-          close();
+          close().then(() => onSubmit(timeString));
         }}
         as="button"
         className="w-full p-2 bg-gray-300"
@@ -248,8 +240,7 @@ const PartyNameInput = ({ onSubmit }: { onSubmit: (name: string) => unknown }) =
       <Input ref={ref} value={name} onChange={(e) => setName(e.target.value)} />
       <Badge
         onClick={() => {
-          onSubmit(name);
-          close();
+          close().then(() => onSubmit(name));
         }}
         as="button"
         className="w-full p-2 bg-gray-300"
@@ -399,8 +390,7 @@ const SelectMenuCategoryInput = ({ onSubmit }: { onSubmit: (name: string) => unk
             key={category}
             as="button"
             onClick={() => {
-              onSubmit(category);
-              close();
+              close().then(() => onSubmit(category));
             }}
             className="p-2 bg-gray-300 rounded-lg"
           >
@@ -410,7 +400,7 @@ const SelectMenuCategoryInput = ({ onSubmit }: { onSubmit: (name: string) => unk
       </Flex>
       <Badge
         onClick={() => {
-          close();
+          close().then(() => onSubmit("기타"));
         }}
         as="button"
         className="w-full p-2 bg-gray-300"

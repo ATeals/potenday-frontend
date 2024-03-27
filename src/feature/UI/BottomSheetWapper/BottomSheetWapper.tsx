@@ -13,7 +13,9 @@ interface BottomSheetProps {
   height?: string;
 }
 
-const BottomSheetContext = createContext<{ close: () => unknown }>({ close: () => {} });
+const BottomSheetContext = createContext<{ close: () => Promise<void> }>({
+  close: () => new Promise(() => {}),
+});
 
 export const useBottomSheetContext = () => {
   const { close } = useContext(BottomSheetContext);
@@ -38,7 +40,10 @@ export const BottomSheetWapper = ({
 }: BottomSheetProps) => {
   const controls = useAnimation();
 
-  const closeEndAnimation = () => controls.start("closed").then(() => close());
+  const closeEndAnimation = async () => {
+    await controls.start("closed");
+    close();
+  };
 
   const onDragEnd = (event: DragEvent, info: PanInfo) => {
     const shouldClose = info.point.y > window.innerHeight * 0.7;
