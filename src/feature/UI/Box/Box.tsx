@@ -13,7 +13,7 @@ const BoxSizeMap = {
   lg: " w-[4rem] h-[4rem]",
   xl: " w-[5rem] h-[5rem] ",
   "2xl": " w-[6rem] h-[6rem] ",
-  default: "w-full h-full",
+  default: "",
 };
 
 const BoxVariantMap = {

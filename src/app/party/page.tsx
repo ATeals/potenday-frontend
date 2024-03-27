@@ -92,18 +92,16 @@ const PartyMainPage = () => {
             <SelectPartyDateStep nextStep={() => setStep("음식선택")} />
           </Step>
           <Step name="음식선택">
-            <Box variant="none">
-              <SelectMenuCategoryStep nextStep={() => setStep("장소선택")} />
-            </Box>
+            <SelectMenuCategoryStep nextStep={() => setStep("장소선택")} />
           </Step>
           <Step name="장소선택">
-            <Box onClick={() => setStep("완료")} variant="none">
+            <Box onClick={() => setStep("완료")} variant="outline" className="w-full h-full">
               장소선택
             </Box>
           </Step>
 
           <Step name="완료">
-            <Box onClick={() => alert("성공")} variant="none">
+            <Box onClick={() => alert("성공")} variant="outline" className="w-full h-full">
               완료
             </Box>
           </Step>
@@ -375,10 +373,10 @@ const SelectMenuCategoryStep = ({ nextStep }: { nextStep: () => void }) => {
       <Heading size="lg" className="">
         메뉴는 무엇일까요?
       </Heading>
-
       <Badge as="button" className="w-full p-2" onClick={() => openMenuCategoryInput()}>
-        {category || "메뉴 선택"}
+        {category || "음식 종류 선택"}
       </Badge>
+
       <Badge as="button" onClick={() => nextStep()} className="w-full p-2 bg-gray-300">
         다음
       </Badge>
