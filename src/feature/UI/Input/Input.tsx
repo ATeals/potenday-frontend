@@ -34,7 +34,12 @@ export const InputComponent = (
   }: PolymorphicComponentProps<"input", InputProps>,
   ref: PolymorphicRef<"input">
 ) => {
-  const tailwind = generateClassName(InputVariantMap[variant], InputSizeMap[size], className);
+  const tailwind = generateClassName(
+    "text-[1rem]",
+    InputVariantMap[variant],
+    InputSizeMap[size],
+    className
+  );
 
   return (
     <>

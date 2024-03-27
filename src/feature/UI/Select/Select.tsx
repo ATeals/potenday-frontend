@@ -37,7 +37,7 @@ export const Select = <T extends any>({
   };
 
   const css = generateClassName(
-    "w-full h-10 pl-3 pr-6 text-center border rounded-lg appearance-none focus:outline-none",
+    "w-full h-10 p-3 flex justify-center items-center border rounded-lg focus:outline-none",
     className
   );
 
@@ -68,12 +68,12 @@ export const Select = <T extends any>({
               className="absolute left-0 z-10 mt-2 w-full bg-white border rounded-md shadow-lg overflow-auto"
               style={{ maxHeight: maxOptionHeight }}
             >
-              <div className="py-1 text-base leading-6 shadow-xs">
+              <div className="py-1 text-center leading-6 shadow-xs">
                 {options.map((option) => (
                   <div
                     onClick={onOptionClicked(option)}
                     className="px-5 py-1 hover:bg-blue-500 hover:text-white cursor-pointer text-center"
-                    key={Math.random()}
+                    key={option.label}
                   >
                     {option.label}
                   </div>
