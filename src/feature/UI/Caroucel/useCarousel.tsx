@@ -1,11 +1,9 @@
-import { debounce } from "@/feature/common/hooks/useDebounce/useDebounce";
 import { useEffect, useState } from "react";
 
 type UseCarousel = {
   autoSlideDelay?: number;
   length: number;
   onChangeCarousel?: () => unknown;
-  enabledScrollSlide?: boolean;
 };
 
 export const useCarousel = ({ autoSlideDelay, length, onChangeCarousel }: UseCarousel) => {
@@ -22,9 +20,12 @@ export const useCarousel = ({ autoSlideDelay, length, onChangeCarousel }: UseCar
 
   useEffect(() => {
     if (!autoSlideDelay) return;
+
     const slideInterval = setInterval(next, autoSlideDelay);
     return () => clearInterval(slideInterval);
   }, [autoSlideDelay]);
 
-  return { curr, prev, next, length };
+  const setSlide = (index: number) => setCurr(index);
+
+  return { curr, prev, next, length, setSlide };
 };

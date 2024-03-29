@@ -1,37 +1,33 @@
-import { PolymorphicComponentProps } from "@UI/types/PolymorphicComponentProps";
 import { useCarouselContext } from "./CarouselProvider";
 import { generateClassName } from "@/feature/common/utils";
-import { ElementType } from "react";
 
-interface CarouselArrowProps {
+interface CarouselArrowProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: {
     prev: React.ReactNode;
     next: React.ReactNode;
   };
 }
 
-export const CarouselArrow = <T extends ElementType = "div">({
-  as,
+export const CarouselArrow = ({
   icon = { prev: "⬅️", next: "➡️" },
   className,
-}: PolymorphicComponentProps<T, CarouselArrowProps>) => {
+}: CarouselArrowProps) => {
   const { prev, next } = useCarouselContext();
 
-  const Element = as || "div";
-
   const buttonStyle = generateClassName(
-    "p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white",
+    "p-1 rounded-full shadow bg-white/80 text-gray-800 hover:bg-white absolute flex items-center justify-between",
+    "transform -translate-y-1/2",
     className
   );
 
   return (
-    <Element className="absolute inset-0 flex items-center justify-between p-4">
-      <button onClick={prev} className={buttonStyle}>
+    <>
+      <button onClick={prev} className={buttonStyle + " left-0 top-1/2 "}>
         <span>{icon.prev}</span>
       </button>
-      <button onClick={next} className={buttonStyle}>
+      <button onClick={next} className={buttonStyle + " right-0 top-1/2"}>
         <span>{icon.next}</span>
       </button>
-    </Element>
+    </>
   );
 };
