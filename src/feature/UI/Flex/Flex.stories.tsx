@@ -22,9 +22,9 @@ export const Default: Story = {
     style: { direction: "row", justify: "center", align: "center" },
     children: (
       <>
-        <Box variant="primary" size="md" />
-        <Box variant="default" size="md" />
-        <Box variant="warning" size="md" />
+        <Box size="md" />
+        <Box size="md" />
+        <Box size="md" />
       </>
     ),
   },
@@ -35,9 +35,9 @@ export const Column: Story = {
     style: { direction: "column", justify: "center", align: "center" },
     children: (
       <>
-        <Box variant="primary" size="md" />
-        <Box variant="default" size="md" />
-        <Box variant="warning" size="md" />
+        <Box size="md" />
+        <Box size="md" />
+        <Box size="md" />
       </>
     ),
   },

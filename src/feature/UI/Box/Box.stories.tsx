@@ -25,7 +25,6 @@ export const Default: Story = {
   args: {
     children: "Box",
     size: "md",
-    variant: "default",
   },
 };
 
@@ -43,15 +42,15 @@ export const Variant: Story = {
         </li>
         <li>
           <h1>Primary</h1>
-          <Box variant="primary" size={size}></Box>
+          <Box size={size}></Box>
         </li>
         <li>
           <h1>Warning</h1>
-          <Box variant="warning" size={size}></Box>
+          <Box size={size}></Box>
         </li>
         <li>
           <h1>Outline</h1>
-          <Box variant="outline" size={size}></Box>
+          <Box size={size}></Box>
         </li>
       </ul>
     );
