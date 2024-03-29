@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { ProviderGroups } from "@/widgets/ProviderGroups";
-
-import { Flex } from "@UI/Flex";
-import { Icon } from "@UI/icon";
-import { Text } from "@UI/Text";
-import { DividerLine } from "@UI/DividerLine";
+import { Navigation } from "@/widgets/Navigation";
 
 import "@/styles/globals.css";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "LET's EAT",
@@ -35,7 +30,7 @@ export default function RootLayout({
       </head>
 
       <body className="relative w-screen sm:w-[393px] sm:mx-auto h-dvh">
-        <main className="pb-[77px] overflow-scroll w-full h-dvh">
+        <main className="pb-[72px] overflow-scroll w-full h-full">
           <ProviderGroups>{children}</ProviderGroups>
         </main>
         <Navigation />
@@ -43,42 +38,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-const PATH = {
-  HOME: "/",
-};
-
-const Navigation = () => {
-  return (
-    <nav className="absolute bottom-0 w-full z-30 bg-white">
-      <DividerLine />
-      <Flex style={{ justify: "space-between" }} className="p-5 pt-1 pb-5">
-        <Link href={PATH.HOME}>
-          <Flex style={{ direction: "column" }}>
-            <Icon icon="house" size="lg" />
-            <Text size="sm">홈</Text>
-          </Flex>
-        </Link>
-
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="house" size="lg" />
-          <Text size="sm">기본</Text>
-        </Flex>
-
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="app" size="lg" />
-        </Flex>
-
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="bookmark" size="lg" />
-          <Text size="sm">찜</Text>
-        </Flex>
-
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="person" size="lg" />
-          <Text size="sm">마이페이지</Text>
-        </Flex>
-      </Flex>
-    </nav>
-  );
-};
