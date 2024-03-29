@@ -1,3 +1,5 @@
+export { Box } from "./Box";
+export { Badge } from "./Badge";
 export { ProgressBar } from "./ProgressBar";
 export { Carousel } from "./Caroucel";
 export { Heading } from "./Heading";

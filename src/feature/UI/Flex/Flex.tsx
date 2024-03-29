@@ -16,7 +16,7 @@ export const Flex = <T extends React.ElementType = "div">({
 }: PolymorphicComponentProps<T, FlexProps>) => {
   const Element = asChild ? Slot : as || "div";
 
-  const tailwind = generateClassName("flex", props.className);
+  const tailwind = generateClassName("inline-flex", props.className);
 
   return (
     <Element

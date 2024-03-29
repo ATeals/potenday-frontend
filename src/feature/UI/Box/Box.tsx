@@ -17,17 +17,14 @@ const BoxSizeMap = {
 };
 
 const BoxVariantMap = {
-  primary: "bg-teal-300",
-  default: "bg-gray-200",
   outline: "border-[0.1rem] border-gray-300",
-  warning: "bg-red-300",
   none: "",
 };
 
 export const Box = <T extends React.ElementType = "div">({
   as,
   size = "default",
-  variant = "default",
+  variant = "none",
   asChild,
   children,
   className,
