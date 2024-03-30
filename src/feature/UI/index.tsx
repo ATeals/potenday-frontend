@@ -1,3 +1,4 @@
+export { Input } from "./Input";
 export { Box } from "./Box";
 export { Badge } from "./Badge";
 export { ProgressBar } from "./ProgressBar";
