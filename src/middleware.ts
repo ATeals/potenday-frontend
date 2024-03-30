@@ -5,11 +5,11 @@ const middleware = (request: NextRequest) => {
 
   if (!cookie) return NextResponse.redirect(new URL("/login", request.url));
 
-  return NextResponse.next();
+  // return NextResponse.next();
 };
 
 export default middleware;
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|.png|login).*)"],
+  matcher: ["/((?!api|_next/static|_next/images|.png|login|images|leteat.png).*)"],
 };

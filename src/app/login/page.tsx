@@ -7,13 +7,12 @@ import { Box } from "@UI/Box";
 import { DividerLine } from "@UI/DividerLine";
 import { Flex } from "@UI/Flex";
 import { Text } from "@UI/Text";
-import Image from "next/image";
 import Link from "next/link";
 
 const LogInParmasPage = () => {
   return (
     <section className="h-full w-full p-10 flex flex-col items-center justify-center relative">
-      <Image src="/images/LETEAT.png" alt="logo" width={200} height={200} />
+      <img src="/leteat.png" alt="로고" width={200} height={200} draggable="false" />
 
       <Flex style={{ direction: "column", justify: "end", gap: 10 }} className="mt-40 w-full">
         <Link className="w-full" href={`${ENV.API_URL}/auth/login/kakao`}>
