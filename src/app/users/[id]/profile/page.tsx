@@ -7,7 +7,7 @@ import { Flex } from "@UI/Flex";
 import { Heading } from "@UI/Heading";
 import { Text } from "@UI/Text";
 import { Icon } from "@UI/icon";
-import { motion, useMotionValue, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
@@ -102,60 +102,6 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
         </section>
       </section>
     </>
-  );
-};
-
-const Cs = () => {
-  const containerRef = useRef(null);
-  const x = useMotionValue(0);
-
-  return (
-    <section ref={containerRef}>
-      <motion.div
-        drag="x"
-        dragConstraints={containerRef}
-        style={{ x }}
-        className="snap-x snap-mandatory overflow-scroll h-[350px] p-5 inline-flex justify-start"
-      >
-        <div className="w-[80px] flex-shrink-0"></div>
-        {Array(10)
-          .fill(0)
-          .map((_, i) => (
-            <Box
-              key={i}
-              className="bg-primary-sm h-full snap-center snap-always w-[220px] ml-5 flex-shrink-0 rounded-lg overflow-hidden p-3"
-            >
-              <Flex style={{ direction: "column", justify: "start", align: "start" }}>
-                <article className="my-5">
-                  <Text>겸둥 지은</Text>
-                  <Heading size="lg">점심에 즐기는 유학생활 🌴</Heading>
-                </article>
-
-                <article className="my-5">
-                  <Text size="sm" className="text-gray-500">
-                    3월 25일 (월) 13:00
-                  </Text>
-                  <Text size="sm" className="text-gray-500">
-                    📍 갓잇 강남점
-                  </Text>
-                </article>
-
-                <Flex style={{ gap: 5 }} className="text-gray-500">
-                  <Icon icon="people-fill" />
-                  <Text>4 / 6</Text>
-                </Flex>
-
-                <Flex className="">
-                  <Box size="sm" className="rounded-[50%] mx-[-5px] bg-primary-md"></Box>
-                  <Box size="sm" className="rounded-[50%] mx-[-5px] bg-secondary-md"></Box>
-                  <Box size="sm" className="rounded-[50%] mx-[-5px] bg-primary-lg"></Box>
-                  <Box size="sm" className="rounded-[50%] mx-[-5px] bg-secondary-black"></Box>
-                </Flex>
-              </Flex>
-            </Box>
-          ))}
-      </motion.div>
-    </section>
   );
 };
 

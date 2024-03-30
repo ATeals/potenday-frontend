@@ -3,6 +3,8 @@ import { ProviderGroups } from "@/widgets/ProviderGroups";
 import { Navigation } from "@/widgets/Navigation";
 
 import "@/styles/globals.css";
+import Script from "next/script";
+import { ENV } from "@/config";
 
 export const metadata: Metadata = {
   title: "LET's EAT",
@@ -26,6 +28,11 @@ export default function RootLayout({
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+
+        <Script
+          type="text/javascript"
+          src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${ENV.NAVER_MAP_CLIENT_ID}`}
         />
       </head>
 

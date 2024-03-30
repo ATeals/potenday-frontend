@@ -120,7 +120,7 @@ const PartyDetail = ({ id }: { id: number }) => {
 const Map = ({ mapx, mapy }: { mapx: number; mapy: number }) => {
   const navermaps = useNavermaps();
 
-  const point = new navermaps.Point(1270352532, 374947499);
+  const latlng = navermaps.TransCoord.fromTM128ToNaver(new navermaps.Point(mapx, mapy));
 
-  return <NaverMap defaultZoom={10} center={new navermaps.Point(point)} />;
+  return <NaverMap defaultZoom={10} center={latlng} />;
 };
