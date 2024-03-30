@@ -1,45 +1,57 @@
+"use client";
+
 import { DividerLine } from "@UI/DividerLine";
 import { Flex } from "@UI/Flex";
-import { AddPartySVG } from "@UI/Svgs";
+import { AddPartySVG } from "@/feature/Svgs";
 import { Text } from "@UI/Text";
-import { Icon } from "@UI/icon";
 import Link from "next/link";
+import { HomeSVG } from "@/feature/Svgs/HomeSVG";
+import { ChatSVG } from "@/feature/Svgs/ChatSVG";
+import { BookmarkSVG } from "@/feature/Svgs/BookmarkSVG";
+import { PersonSVG } from "@/feature/Svgs/PersonSVG";
+import { useDisableOnAddress } from "@/feature/common/hooks/useDisableOnAddress/useDisableOnAddress";
 
 const PATH = {
   HOME: "/",
 };
 
+const DISABLE_NAVIGATION_PATH = ["/login", "/party/create"];
+
 export const Navigation = () => {
+  const mount = useDisableOnAddress(DISABLE_NAVIGATION_PATH);
+
   return (
-    <nav className="absolute bottom-0 w-full z-30 bg-white">
-      <DividerLine />
-      <Flex style={{ justify: "space-between" }} className="p-5 pt-1 pb-5">
-        <Link href={PATH.HOME}>
+    mount && (
+      <nav className="absolute bottom-0 w-full z-30 bg-white">
+        <DividerLine />
+        <Flex style={{ justify: "space-between" }} className="p-5 pt-1 pb-5">
+          <Link href={PATH.HOME}>
+            <Flex style={{ direction: "column" }}>
+              <HomeSVG className="w-5 h-5 fill-gray-400" />
+              <Text size="sm">홈</Text>
+            </Flex>
+          </Link>
+
           <Flex style={{ direction: "column" }}>
-            <Icon icon="house" size="lg" />
-            <Text size="sm">홈</Text>
+            <ChatSVG className="w-5 h-5 fill-gray-400" />
+            <Text size="sm">채팅</Text>
           </Flex>
-        </Link>
 
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="house" size="lg" />
-          <Text size="sm">기본</Text>
-        </Flex>
+          <Flex style={{ direction: "column" }}>
+            <AddPartySVG className="w-10 h-10 fill-gray-400" />
+          </Flex>
 
-        <Flex style={{ direction: "column" }}>
-          <AddPartySVG />
-        </Flex>
+          <Flex style={{ direction: "column" }}>
+            <BookmarkSVG className="w-5 h-5 fill-gray-400" />
+            <Text size="sm">찜</Text>
+          </Flex>
 
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="bookmark" size="lg" />
-          <Text size="sm">찜</Text>
+          <Flex style={{ direction: "column" }}>
+            <PersonSVG className="w-5 h-5 fill-gray-400" />
+            <Text size="sm">마이페이지</Text>
+          </Flex>
         </Flex>
-
-        <Flex style={{ direction: "column" }}>
-          <Icon icon="person" size="lg" />
-          <Text size="sm">마이페이지</Text>
-        </Flex>
-      </Flex>
-    </nav>
+      </nav>
+    )
   );
 };
