@@ -34,11 +34,11 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
           </Flex>
         </Flex>
 
-        <Flex className="absolute rounded-[50%] w-[140px] h-[140px] bottom-[-2rem] z-30 bg-white shadow-xl">
+        <Flex className="absolute rounded-[50%] w-[140px] h-[140px] bottom-[-2rem] z-30 bg-white shadow-xl overflow-hidden">
           <img
             src={profileImage || "/images/ProfileDemo.png"}
             alt="profileImg"
-            className="object-contain w-[90%] h-[90%]"
+            className="object-contain w-[90%] h-[90%] rounded-[50%]"
           />
         </Flex>
       </Box>
