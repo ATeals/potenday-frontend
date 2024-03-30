@@ -1,14 +1,27 @@
 "use client";
 
+import { useChannelCreateMutation } from "@/feature/channel/api/query";
 import { Badge } from "@UI/Badge";
 import { Box } from "@UI/Box";
 import { Flex } from "@UI/Flex";
 import { Heading } from "@UI/Heading";
 import { Input } from "@UI/Input";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const ChannelCreatePage = () => {
   const [input, setInput] = useState("");
+
+  const router = useRouter();
+
+  const { mutate } = useChannelCreateMutation({
+    onSuccess: () => {
+      router.push("/");
+    },
+    onError: () => {
+      router.push("/");
+    },
+  });
 
   return (
     <section className="h-full p-10">
@@ -34,7 +47,11 @@ const ChannelCreatePage = () => {
         </section>
       </Flex>
 
-      <Badge as="button" onClick={() => {}} className="w-full p-2 my-5 bg-primary-lg text-white">
+      <Badge
+        as="button"
+        onClick={() => mutate(input)}
+        className="w-full p-2 my-5 bg-primary-lg text-white"
+      >
         완료
       </Badge>
     </section>

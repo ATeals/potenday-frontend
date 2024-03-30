@@ -23,9 +23,9 @@ const PartyDetail = ({ id }: { id: number }) => {
 
   const user = useAuthUserQuery();
 
-  const { data: party } = usePartyQuery(id, user.channelId);
+  const { data: party } = usePartyQuery(id, user!.channelId);
 
-  const { mutate } = usePartyJoinMutation(user.channelId, {
+  const { mutate } = usePartyJoinMutation(user!.channelId, {
     onSuccess: (res) => {
       alert("참여 신청이 완료되었습니다.");
     },

@@ -1,5 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { AuthAPI } from ".";
+import { AuthAPI, User } from ".";
+import { useRouter } from "next/router";
 
 export const useAuthUserQuery = () => {
   const { data } = useSuspenseQuery({
@@ -7,9 +8,15 @@ export const useAuthUserQuery = () => {
     queryFn: async () => {
       const res = await AuthAPI.getLoggedInUser();
 
+      if (res.status > 400) return undefined;
+
       return res.data.data;
     },
   });
 
-  return data;
+  const router = useRouter();
+
+  if (!data) router.replace("/login");
+
+  return data as User;
 };

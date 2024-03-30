@@ -8,4 +8,7 @@ export const Axios = axios.create({
     // Authorization: `Bearer ${token}`,
   },
   withCredentials: true,
+  validateStatus: function (status) {
+    return status >= 200 && status < 500;
+  },
 });
