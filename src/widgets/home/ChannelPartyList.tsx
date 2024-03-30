@@ -1,3 +1,5 @@
+"use client";
+
 import { useAuthUserQuery } from "@/feature/auth/api/query";
 import { usePartiesQuery } from "@/feature/party/api/queries";
 import { PartyList } from "@/feature/party/components/PartyList";

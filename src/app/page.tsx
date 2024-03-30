@@ -6,6 +6,7 @@ import { Header } from "@/widgets/home/Header";
 import { Flex } from "@UI/Flex";
 import { Heading } from "@UI/Heading";
 import { Text } from "@UI/Text";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -26,9 +27,11 @@ const HomePage = () => {
             <Text> 더보기 &rarr;</Text>
           </Link>
         </Flex>
-        <Suspense fallback={<div>loading...</div>}>
-          <ChannelPartyList />
-        </Suspense>
+        <ErrorBoundary errorComponent={() => <></>}>
+          <Suspense fallback={<div>loading...</div>}>
+            <ChannelPartyList />
+          </Suspense>
+        </ErrorBoundary>
       </section>
     </>
   );

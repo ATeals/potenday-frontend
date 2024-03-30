@@ -1,3 +1,5 @@
+"use client";
+
 import { Box } from "@UI/Box";
 import { Flex } from "@UI/Flex";
 import { Text } from "@UI/Text";

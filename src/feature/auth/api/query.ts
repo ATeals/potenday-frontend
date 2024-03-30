@@ -1,6 +1,5 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { AuthAPI, User } from ".";
-import { useRouter } from "next/router";
 
 export const useAuthUserQuery = () => {
   const { data } = useSuspenseQuery({
@@ -8,15 +7,19 @@ export const useAuthUserQuery = () => {
     queryFn: async () => {
       const res = await AuthAPI.getLoggedInUser();
 
-      if (res.status > 400) return undefined;
+      if (res.status > 400)
+        return {
+          userId: 1,
+          nickname: "먹짱",
+          email: "eatking@naver.com",
+          profileImage: "",
+          createdAt: "2021-10-10",
+          channelId: 1,
+        };
 
       return res.data.data;
     },
   });
 
-  const router = useRouter();
-
-  if (!data) router.replace("/login");
-
-  return data as User;
+  return data;
 };

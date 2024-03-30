@@ -4,6 +4,7 @@ import { PartyList } from "@/feature/party/components/PartyList";
 
 export const SearchPartyList = () => {
   const user = useAuthUserQuery();
+
   const parties = usePartiesQuery(user.channelId);
 
   return <PartyList parties={parties} />;

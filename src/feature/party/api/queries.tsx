@@ -7,7 +7,7 @@ const PartyQueryOptions = {
     queryFn: async () => {
       const res = await PartyAPI.getAll(channelId);
 
-      return res.data.data.parties;
+      return res?.data?.data?.parties || [];
     },
   }),
 

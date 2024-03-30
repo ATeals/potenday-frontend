@@ -1,10 +1,6 @@
 "use client";
 
-import { ChatSVG } from "@/feature/Svgs/ChatSVG";
 import { useAuthUserQuery } from "@/feature/auth/api/query";
-import { Box } from "@UI/Box";
-import { Flex } from "@UI/Flex";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const LogInPage = () => {

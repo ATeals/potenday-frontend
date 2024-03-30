@@ -8,9 +8,11 @@ import { Text } from "@UI/Text";
 
 import { useRouter } from "next/navigation";
 import { SearchPartyList } from "@/widgets/search/SearchPartyList";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 
 const SearchPage = () => {
   const router = useRouter();
+
   return (
     <>
       <section className="absolute top-0 w-full bg-white">
@@ -47,7 +49,9 @@ const SearchPage = () => {
         </section>
 
         <section className="p-2">
-          <SearchPartyList />
+          <ErrorBoundary errorComponent={() => <></>}>
+            <SearchPartyList />
+          </ErrorBoundary>
         </section>
       </section>
     </>
