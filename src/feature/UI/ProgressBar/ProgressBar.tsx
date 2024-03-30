@@ -16,7 +16,7 @@ export const ProgressBar = ({ current, max, barStyle, ...props }: ProgressBarPro
 
   const barCss = generateClassName(
     "left-0 rounded-lg h-full transition-all duration-300",
-    barStyle || "bg-gradient-to-r from-teal-500 to-green-300"
+    barStyle || "bg-primary-lg"
   );
 
   return (
