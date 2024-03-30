@@ -53,7 +53,7 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
       <DividerLine className="my-5" />
       <section>
         <Text size="lg" className="px-5">
-          <span className="font-bold">태평동 먹짱</span>님의 모임
+          <span className="font-bold">{nickname || "태평동 먹짱"}</span>님의 모임
         </Text>
 
         <section ref={containerRef} className="w-full overflow-scroll">
