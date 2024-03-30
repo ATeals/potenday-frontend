@@ -1,0 +1,17 @@
+import { SVGProps } from "./SVG";
+
+export const PersonSVG = ({ ...props }: SVGProps) => {
+  return (
+    <svg
+      width="17"
+      height="21"
+      viewBox="0 0 17 21"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <circle cx="8.11215" cy="4.056" r="4.056" />
+      <path d="M0 17.576C0 13.0959 3.63187 9.46404 8.112 9.46404C12.5921 9.46404 16.224 13.0959 16.224 17.576V20.28H0V17.576Z" />
+    </svg>
+  );
+};
