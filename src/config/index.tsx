@@ -4,4 +4,5 @@ export const ENV = {
   LOCAL_HOST: "http://localhost:3000/",
   KAKAO_APP_KEY: process.env.KAKAO_APP_KEY!,
   KAKAO_SECRET: process.env.KAKAO_SECRET!,
+  API_URL: process.env.NEXT_PUBLIC_API_URL!,
 } as const;

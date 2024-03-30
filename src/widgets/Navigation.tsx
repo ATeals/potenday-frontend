@@ -10,6 +10,7 @@ import { ChatSVG } from "@/feature/Svgs/ChatSVG";
 import { BookmarkSVG } from "@/feature/Svgs/BookmarkSVG";
 import { PersonSVG } from "@/feature/Svgs/PersonSVG";
 import { useDisableOnAddress } from "@/feature/common/hooks/useDisableOnAddress/useDisableOnAddress";
+import { AuthAPI } from "@/feature/auth/api";
 
 const PATH = {
   HOME: "/",
@@ -46,7 +47,13 @@ export const Navigation = () => {
             <Text size="sm">찜</Text>
           </Flex>
 
-          <Flex style={{ direction: "column" }}>
+          <Flex
+            style={{ direction: "column" }}
+            onClick={async () => {
+              const res = await AuthAPI.getLoggedInUser();
+              console.log(res);
+            }}
+          >
             <PersonSVG className="w-5 h-5 fill-gray-400" />
             <Text size="sm">마이페이지</Text>
           </Flex>
