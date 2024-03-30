@@ -1,5 +1,6 @@
 "use client";
 
+import { useAuthUserQuery } from "@/feature/auth/api/query";
 import { Box } from "@UI/Box";
 import { DividerLine } from "@UI/DividerLine";
 import { Flex } from "@UI/Flex";
@@ -14,6 +15,8 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
   const router = useRouter();
   const containerRef = useRef(null);
 
+  const user = useAuthUserQuery();
+  const { nickname, userId, profileImage } = user;
   return (
     <>
       <Box className="w-full h-[250px] relative bg-gray-400 bg-opacity-70 overflow-visible mb-16">
@@ -33,7 +36,7 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
 
         <Flex className="absolute rounded-[50%] w-[140px] h-[140px] bottom-[-2rem] z-30 bg-white shadow-xl">
           <img
-            src="/images/ProfileDemo.png"
+            src={profileImage || "/images/ProfileDemo.png"}
             alt="profileImg"
             className="object-contain w-[90%] h-[90%]"
           />
@@ -41,9 +44,9 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
       </Box>
 
       <Flex style={{ direction: "column", justify: "space-between", gap: 20 }} className="px-10">
-        <Heading size="lg">태평동 먹짱</Heading>
+        <Heading size="lg">{nickname || "태평동 먹짱"}</Heading>
         <Text size="sm" className="whitespace-pre-wrap text-gray-500">
-          가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바사아자차카타파하가나다라마바.
+          맘마 먹고 합시다!
         </Text>
       </Flex>
 
