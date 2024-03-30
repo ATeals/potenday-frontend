@@ -10,6 +10,9 @@ const config: Config = {
     "./src/**/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    textShadow: {
+      lg: "0 0 0.4rem var(--tw-shadow-color)",
+    },
     colors: {
       ...colors,
       primary: {
@@ -27,6 +30,9 @@ const config: Config = {
     },
 
     extend: {
+      boxShadow: {
+        box: "0 35px 60px -15px rgba(0,0,0,0.3)",
+      },
       keyframes: {
         slideUpIn: {
           "0%": {

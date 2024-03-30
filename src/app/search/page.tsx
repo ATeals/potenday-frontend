@@ -4,7 +4,7 @@ import { PartyList } from "@/widgets/home/PartyList";
 import { Badge } from "@UI/Badge";
 import { DividerLine } from "@UI/DividerLine";
 import { Flex } from "@UI/Flex";
-import { BackSVG, BellSVG, MenuSVG } from "@UI/Svgs";
+import { BackSVG, BellSVG, MenuSVG } from "@/feature/Svgs";
 import { Text } from "@UI/Text";
 
 import { useRouter } from "next/navigation";

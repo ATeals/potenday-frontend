@@ -11,6 +11,9 @@ const HomePage = () => {
   return (
     <>
       <Header />
+      <section className="p-2 px-5">
+        <Heading>삼성물산 </Heading>
+      </section>
       <FoodCategoryList />
       <section className="px-3">
         <Text>실시간 인기 파티 추천</Text>
