@@ -118,9 +118,5 @@ const PartyDetail = ({ id }: { id: number }) => {
 };
 
 const Map = ({ mapx, mapy }: { mapx: number; mapy: number }) => {
-  const navermaps = useNavermaps();
-
-  const latlng = navermaps.TransCoord.fromTM128ToNaver(new navermaps.Point(mapx, mapy));
-
-  return <NaverMap defaultZoom={10} center={latlng} />;
+  return <NaverMap defaultZoom={10} center={{ lat: 37.5666103, lng: 126.9783882 }} />;
 };
