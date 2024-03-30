@@ -13,7 +13,7 @@ export const FoodCategoryList = () => {
       <motion.div
         drag="x"
         dragConstraints={constraintsRef}
-        className="inline-flex p-3 py-8"
+        className="inline-flex p-3 py-5"
         style={{ gap: 10, justifyContent: "start", flexWrap: "nowrap" }}
       >
         {FOOD_CATEGORIES.map(({ name, iconURL }, i) => (

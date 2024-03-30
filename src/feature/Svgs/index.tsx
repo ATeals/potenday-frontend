@@ -1,3 +1,4 @@
+export { NaverSVG } from "./NaverSVG";
 export { CalendarSVG } from "./CalendarSVG";
 export { LocationSVG } from "./LocationSVG";
 export { PeopleSVG } from "./PeopleSVG";

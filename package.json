@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "HTTPS=true SSL_CRT_FILE=localhost.pem SSL_KEY_FILE=localhost-key.pem next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.28.6",
+    "@tanstack/react-query-devtools": "^5.28.10",
     "axios": "^1.6.8",
     "framer-motion": "^11.0.20",
     "next": "14.1.4",

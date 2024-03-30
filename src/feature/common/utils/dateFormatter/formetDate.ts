@@ -3,6 +3,7 @@ type FormetDateType = keyof typeof FormetDateMap;
 const FormetDateMap = {
   "YYYY/MM/DD": (date: Date) => date.toISOString().slice(0, 10).split("-").join("/"),
   "YYYY.MM.DD": (date: Date) => date.toISOString().slice(0, 10).split("-").join("."),
+  "YYYY-MM-DD": (date: Date) => date.toISOString().slice(0, 10),
   YYMMDD: (date: Date) => date.toISOString().slice(0, 10).split("-").join("").slice(2),
   "YYYY년 MM월 DD일": (date: Date) => {
     const [y, m, d] = date.toISOString().slice(0, 10).split("-");

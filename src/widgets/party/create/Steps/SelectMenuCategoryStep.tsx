@@ -14,12 +14,12 @@ export const SelectMenuCategoryStep = ({ nextStep }: { nextStep: () => void }) =
 
   const { open, close } = useOverlay();
 
-  const category = watch("category");
+  const category = watch("foodCategory");
 
   const openMenuCategoryInput = () =>
     open(({ isOpen }) => (
       <BottomSheetWapper height="70%" isOpen={isOpen} close={close}>
-        <PartyMenuCategoryPicker onSubmit={(category) => setValue("category", category)} />
+        <PartyMenuCategoryPicker onSubmit={(category) => setValue("foodCategory", category)} />
       </BottomSheetWapper>
     ));
 

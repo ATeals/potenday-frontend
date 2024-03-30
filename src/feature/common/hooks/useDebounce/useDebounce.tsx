@@ -23,10 +23,7 @@ export const useDebounce = <Params extends any>(
   callback: DebounceCallback<Params>,
   delay: number = 300
 ) => {
-  const { debounce: debounceCallback, clear } = useMemo(
-    () => debounce(callback, delay),
-    [callback, delay]
-  );
+  const { debounce: debounceCallback, clear } = useMemo(() => debounce(callback, delay), []);
 
   useEffect(() => {
     return () => clear();

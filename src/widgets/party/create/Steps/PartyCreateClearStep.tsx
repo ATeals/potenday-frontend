@@ -1,26 +1,29 @@
+"use client";
+
 import { useFormContext } from "react-hook-form";
 import { PartyStepsWapper } from "./PartyStepsWapper";
 import { Heading } from "@UI/Heading";
 import { Flex } from "@UI/Flex";
 import { CalendarSVG, LocationSVG, PeopleSVG } from "@/feature/Svgs";
 import { Text } from "@UI/Text";
+import { CreatPartyForm } from "@/app/party/create/page";
 import { formatDate } from "@/feature/common/utils";
 
 export const PartyCreateClearStep = ({ onSubmit }: { onSubmit: () => unknown }) => {
-  const { watch } = useFormContext();
-
-  const [title, date, time, foodCategory, location, members, description] = watch([
+  const { watch } = useFormContext<CreatPartyForm>();
+  const [title, date, time, location, members, description] = watch([
     "title",
     "date",
     "time",
-    "foodCategory",
     "location",
     "members",
     "description",
   ]);
 
+  console.log(title, date, time, location, members, description);
+
   return (
-    <PartyStepsWapper triggerLable="완료" onSumbit={() => {}}>
+    <PartyStepsWapper triggerLable="완료" onSumbit={onSubmit}>
       <Heading size="lg" className="">
         <span className="text-primary-lg">모임설정을</span>
         <span> 확인해 주세요!</span>
@@ -50,7 +53,7 @@ export const PartyCreateClearStep = ({ onSubmit }: { onSubmit: () => unknown }) 
           <Flex style={{ gap: 2 }}>
             <LocationSVG className="fill-primary-lg w-4 h-4" />
             <Text size="sm" className="whitespace-pre-wrap text-gray-500">
-              {location}
+              {location.title}
             </Text>
           </Flex>
         </Flex>

@@ -30,10 +30,10 @@ export default function RootLayout({
       </head>
 
       <body className="relative w-screen sm:w-[393px] sm:mx-auto h-dvh">
-        <main className="pb-[72px] overflow-scroll w-full h-full">
-          <ProviderGroups>{children}</ProviderGroups>
-        </main>
-        <Navigation />
+        <ProviderGroups>
+          <main className="pb-[72px] overflow-scroll w-full h-full">{children}</main>
+          <Navigation />
+        </ProviderGroups>
       </body>
     </html>
   );

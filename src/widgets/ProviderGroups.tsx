@@ -1,17 +1,19 @@
 "use client";
 
 import { NaverMapProvider, QueryProvider } from "@/feature/Provider";
+import { AuthProvider } from "@/feature/Provider/AuthProvider";
 import { OverlayProvider } from "@/feature/common/hooks/useOverlay";
-import { SessionProvider } from "next-auth/react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 export const ProviderGroups = ({ children }: { children: React.ReactNode }) => {
   return (
-    <SessionProvider>
-      <QueryProvider>
-        <OverlayProvider>
+    <QueryProvider>
+      <OverlayProvider>
+        <AuthProvider>
           <NaverMapProvider>{children}</NaverMapProvider>
-        </OverlayProvider>
-      </QueryProvider>
-    </SessionProvider>
+        </AuthProvider>
+      </OverlayProvider>
+      <ReactQueryDevtools />
+    </QueryProvider>
   );
 };

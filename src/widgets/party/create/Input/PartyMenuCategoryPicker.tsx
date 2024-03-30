@@ -8,30 +8,37 @@ export const FOOD_CATEGORIES = [
   {
     name: "전체",
     iconURL: "",
+    id: "all",
   },
   {
     name: "한식",
     iconURL: "/icons/foodCategory/korean_food.png",
+    id: "korean",
   },
   {
     name: "양식",
     iconURL: "/icons/foodCategory/western_food.png",
+    id: "western",
   },
   {
     name: "일식",
     iconURL: "/icons/foodCategory/japanese_food.png",
+    id: "japanese",
   },
   {
     name: "중식",
     iconURL: "/icons/foodCategory/chinese_food.png",
+    id: "chinese",
   },
   {
     name: "분식",
     iconURL: "/icons/foodCategory/school_food.png",
+    id: "school",
   },
   {
     name: "간편식",
     iconURL: "/icons/foodCategory/convenience_food.png",
+    id: "convenience",
   },
 ] as const;
 
@@ -44,10 +51,10 @@ export const PartyMenuCategoryPicker = ({ onSubmit }: { onSubmit: (name: string)
       className="p-10 h-full"
     >
       <Flex style={{ flexWrap: "wrap", gap: 40 }} className="h-4/5">
-        {FOOD_CATEGORIES.filter((i) => i.name !== "전체").map(({ name, iconURL }) => (
+        {FOOD_CATEGORIES.filter((i) => i.name !== "전체").map(({ name, iconURL, id }) => (
           <Box
             size="2xl"
-            key={name}
+            key={id}
             as="button"
             onClick={() => {
               close().then(() => onSubmit(name));

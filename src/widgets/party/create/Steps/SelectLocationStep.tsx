@@ -50,7 +50,7 @@ export const SelectLocationStep = ({ nextStep }: { nextStep: () => unknown }) =>
           <Text className="text-gray-500">장소</Text>
           <Flex style={{ gap: 10 }}>
             <LocationSVG className="fill-primary-lg w-4 h-4" />
-            {location && <Text className="text-gray-500">{location}</Text>}
+            {location && <Text className="text-gray-500">{location?.title}</Text>}
           </Flex>
         </Flex>
       </Flex>

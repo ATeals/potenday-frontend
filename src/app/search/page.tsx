@@ -1,6 +1,5 @@
 "use client";
 
-import { PartyList } from "@/widgets/home/PartyList";
 import { Badge } from "@UI/Badge";
 import { DividerLine } from "@UI/DividerLine";
 import { Flex } from "@UI/Flex";
@@ -8,6 +7,7 @@ import { BackSVG, BellSVG, MenuSVG } from "@/feature/Svgs";
 import { Text } from "@UI/Text";
 
 import { useRouter } from "next/navigation";
+import { SearchPartyList } from "@/widgets/search/SearchPartyList";
 
 const SearchPage = () => {
   const router = useRouter();
@@ -47,7 +47,7 @@ const SearchPage = () => {
         </section>
 
         <section className="p-2">
-          <PartyList />
+          <SearchPartyList />
         </section>
       </section>
     </>

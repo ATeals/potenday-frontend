@@ -7,10 +7,13 @@ import { Heading } from "@UI/Heading";
 import { Text } from "@UI/Text";
 import { Icon } from "@UI/icon";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
 const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
+  const router = useRouter();
   const containerRef = useRef(null);
+
   return (
     <>
       <Box className="w-full h-[250px] relative bg-gray-400 bg-opacity-70 overflow-visible mb-16">
@@ -18,7 +21,7 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
           style={{ justify: "space-between" }}
           className="p-5 absolute w-full top-0 left-0  text-gray-100"
         >
-          <Text size="lg" className="w-[30%]">
+          <Text onClick={() => router.back()} size="lg" className="w-[30%] hover:cursor-pointer">
             &larr;
           </Text>
           <Text size="lg">프로필</Text>
@@ -94,7 +97,6 @@ const UserProfilePage = ({ params: { id } }: { params: { id: string } }) => {
               ))}
           </motion.div>
         </section>
-        <Cs />
       </section>
     </>
   );
